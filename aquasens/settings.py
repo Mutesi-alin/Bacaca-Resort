@@ -12,13 +12,16 @@ if ENV_FILE:
 BASE_DIR = Path(__file__).resolve().parent.parent
 TEMPLATE_DIR = os.path.join(BASE_DIR, "drainage", "templates")
 
-# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", "django-insecure-9bv3ge1%z6^itsr^q#$ssef0so*!ex&i#5*e*gg+-^ae9@tgn9")
 
-# SECURITY WARNING: don't run with debug turned on in production!
+def get_list(text):
+    return [item.strip() for item in text.split(',') if item.strip()]
 DEBUG = os.getenv("DEBUG", "True") == "True"
-ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "localhost,127.0.0.1").split(",")
-# Application definition
+ALLOWED_HOSTS = [
+    'localhost', 
+    '127.0.0.1',
+    'bacaca-resort.onrender.com',  # Add this line
+]# Application 
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
