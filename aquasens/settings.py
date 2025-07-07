@@ -8,7 +8,21 @@ import dj_database_url
 ENV_FILE = find_dotenv()
 if ENV_FILE:
     load_dotenv(ENV_FILE)
+import os
+from pathlib import Path
 
+# Try to import dotenv, but don't fail if it's not available
+try:
+    from dotenv import load_dotenv, find_dotenv
+    load_dotenv(find_dotenv())
+except ImportError:
+    # dotenv not available, try to load from environment variables directly
+    pass
+
+# Build paths inside the project like this: BASE_DIR / 'subdir'.
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+# Rest of your settings...
 BASE_DIR = Path(__file__).resolve().parent.parent
 TEMPLATE_DIR = os.path.join(BASE_DIR, "drainage", "templates")
 
