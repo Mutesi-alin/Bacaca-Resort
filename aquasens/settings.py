@@ -87,7 +87,7 @@ WSGI_APPLICATION = "aquasens.wsgi.application"
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'bacaca-resort-db',
+        'NAME': 'bacaca_resort_db',
         'USER': 'bacaca_resort_db_user', 
         'PASSWORD': 'jp0EzNrw7HWdLuAfHJoRtcczz19OpxxS',
         'HOST': 'dpg-d1lvf07diees7387g530-a',
